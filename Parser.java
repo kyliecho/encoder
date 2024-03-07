@@ -3,13 +3,13 @@ public class Parser {
     public static int charToRefIndex(char c) {
         int i = (int)c;
         int diff;
-        if (i>=40 && i<=47) {
+        if (i >= 40 && i <= 47) {
             // ()*+,-./
             diff = 4;
-        } else if (i>=48 && i<=57) {
+        } else if (i >= 48 && i <= 57) {
             // 0-9
             diff = 22;
-        } else if (i>=65 && i<=90) {
+        } else if (i >= 65 && i <= 90) {
             // A-Z
             diff = 65;
         } else {
@@ -23,17 +23,17 @@ public class Parser {
     // takes in an index in the reference table, returns the corresponding character
     public static char refIndexToChar(int i) {
         int diff;
-        if (i<=25) {
+        if (i <= 25) {
             // A-Z
             diff = 65;
-        } else if (i>=36) {
+        } else if (i >= 36) {
             // ()*+,-./
             diff = 4;
         } else {
             // 0-9
             diff = 22;
         }
-        int ascii = i+diff;
+        int ascii = i + diff;
         return (char)ascii;
     }
 
