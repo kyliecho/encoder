@@ -19,7 +19,7 @@ public class Encoder {
         int newRefIndex = refIndex - offset;
 
         // wrap around
-        if (newRefIndex<0) {
+        if (newRefIndex < 0) {
             newRefIndex += 44;
         }
         return Parser.refIndexToChar(newRefIndex);
@@ -37,7 +37,7 @@ public class Encoder {
         int newRefIndex = refIndex + offset;
 
         // wraparound
-        if (newRefIndex>43) {
+        if (newRefIndex  >43) {
             newRefIndex -= 44;
         }
         return Parser.refIndexToChar(newRefIndex);
@@ -50,7 +50,7 @@ public class Encoder {
         // generate encoded text
         char offsetChar = Parser.refIndexToChar(offset);
         String encodedText = "" + offsetChar;
-        for (int i = 0; i<plainText.length(); i++) {
+        for (int i = 0; i < plainText.length(); i++) {
             char curr = plainText.charAt(i);
             encodedText += encodeChar(curr, offset);
         }
@@ -63,7 +63,7 @@ public class Encoder {
 
         // generate plain text
         String plainText = "";
-        for (int i = 1; i<encodedText.length(); i++) {
+        for (int i = 1; i < encodedText.length(); i++) {
             char curr = encodedText.charAt(i);
             plainText += decodeChar(curr, offset);
         }
